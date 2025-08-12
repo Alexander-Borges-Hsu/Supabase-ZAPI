@@ -47,13 +47,18 @@ Substitui {{nome_contato}} na mensagem pelo nome salvo no banco.
 Envia a mensagem via Z-API.
 Mostra no terminal o status de cada envio.
 
-#Observações
+Observações
 
 Necessário que a instância Z-API esteja Online/Conectada (QR code lido recentemente).
+
 Mensagens só serão entregues se o número existir no WhatsApp.
+
 Projeto desenvolvido com boas práticas:
+
 .env para variáveis sensíveis
+
 Logs de execução
+
 Retries com tenacity para chamadas externas
 
 ## 🗄️ Configuração da Tabela no Supabase
