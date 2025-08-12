@@ -25,7 +25,7 @@ O projeto foi testado em ambiente virtual, segue o passo a passo:
 
 **Windows (PowerShell)**
 
-Ativar amviente virtual no Windows: .venv\Scripts\Activate.ps1
+Ativar ambiente virtual no Windows: .venv\Scripts\Activate.ps1
 
 **Linux/Mac**
 
