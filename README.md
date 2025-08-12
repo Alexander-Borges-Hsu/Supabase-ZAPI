@@ -15,6 +15,42 @@ Integração simples que:
 
 ---
 
+## Orientação
+
+Na ***pasta do projeto*** copie o .env.example para .env substituindo as variáveis com seus dados.
+
+O projeto foi testado em ambiente virtual, segue o passo a passo:
+
+python -m venv .venv
+# Windows (PowerShell)
+.venv\Scripts\Activate.ps1
+# Linux/Mac
+source .venv/bin/activate
+
+Dentro da pasta whatsapp-supabase instale as dependências:
+pip install -r requirements.txt
+
+Execute o código:
+python src/main.py
+
+**Dúvidas ou Dicas** alexanderborgeshsu@gmail.com
+
+## Fluxo
+
+Busca até 3 contatos da tabela contacts no Supabase.
+Substitui {{nome_contato}} na mensagem pelo nome salvo no banco.
+Envia a mensagem via Z-API.
+Mostra no terminal o status de cada envio.
+
+#Observações
+
+Necessário que a instância Z-API esteja Online/Conectada (QR code lido recentemente).
+Mensagens só serão entregues se o número existir no WhatsApp.
+Projeto desenvolvido com boas práticas:
+.env para variáveis sensíveis
+Logs de execução
+Retries com tenacity para chamadas externas
+
 ## 🗄️ Configuração da Tabela no Supabase
 
 No **SQL Editor** do Supabase, execute:
@@ -35,36 +71,3 @@ on conflict (phone_e164) do nothing;
 
 ---
 
-## Orientação
-
-Na pasta do projeto copie o .env.example para .env substituindo as variáveis com seus dados.
-
-O projeto foi testado em ambiente virtual, segue o passo a passo:
-
-python -m venv .venv
-# Windows (PowerShell)
-.venv\Scripts\Activate.ps1
-# Linux/Mac
-source .venv/bin/activate
-
-Dentro da pasta whatsapp-supabase instale as dependências:
-pip install -r requirements.txt
-
-Execute o código:
-python src/main.py
-
-#Fluxo
-
-Busca até 3 contatos da tabela contacts no Supabase.
-Substitui {{nome_contato}} na mensagem pelo nome salvo no banco.
-Envia a mensagem via Z-API.
-Mostra no terminal o status de cada envio.
-
-#Observações
-
-Necessário que a instância Z-API esteja Online/Conectada (QR code lido recentemente).
-Mensagens só serão entregues se o número existir no WhatsApp.
-Projeto desenvolvido com boas práticas:
-.env para variáveis sensíveis
-Logs de execução
-Retries com tenacity para chamadas externas
