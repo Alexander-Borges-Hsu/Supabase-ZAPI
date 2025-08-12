@@ -17,7 +17,7 @@ Integração simples que:
 
 ## Orientação
 
-Na ***pasta do projeto*** copie o .env.example para .env substituindo as variáveis com seus dados.
+Na ***pasta do projeto (whatsapp-supabase)*** copie o .env.example para .env substituindo as variáveis com seus dados.
 
 O projeto foi testado em ambiente virtual, segue o passo a passo:
 
