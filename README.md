@@ -33,6 +33,10 @@ insert into contacts (nome, phone_e164) values
 ('Henrique', '5511977777777')
 on conflict (phone_e164) do nothing;
 
+---
+
+## Orientação
+
 Na pasta do projeto copie o .env.example para .env substituindo as variáveis com seus dados.
 
 O projeto foi testado em ambiente virtual, segue o passo a passo:
