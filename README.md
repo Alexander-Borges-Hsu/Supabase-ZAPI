@@ -1,17 +1,66 @@
 # WhatsApp + Supabase (Python)
 
-Integração simples: busca contatos no Supabase e envia mensagens personalizadas via Z-API.
+Integração simples que:
+1. Busca contatos no banco de dados **Supabase**.
+2. Personaliza a mensagem usando `{{nome_contato}}`.
+3. Envia via **Z-API** para até 3 contatos.
 
-## Setup da tabela (Supabase)
+---
+
+## 📌 Requisitos
+- Python **3.11+**
+- Conta no [Supabase](https://supabase.com)
+- Conta e instância no [Z-API](https://z-api.io) (plano gratuito)
+- Ambiente virtual Python configurado
+
+---
+
+## 🗄️ Configuração da Tabela no Supabase
+
+No **SQL Editor** do Supabase, execute:
+
 ```sql
 create table if not exists contacts (
   id bigserial primary key,
   nome text not null,
   phone_e164 text unique not null
 );
--- opcional: dados de exemplo
+
+-- Inserir alguns contatos (substitua pelos seus números no formato E.164)
 insert into contacts (nome, phone_e164) values
-('Davi','5511999999999'),
-('Maria','5511988888888'),
-('João','5511977777777')
+('Gustavo', '5511999999999'),
+('Eduardo', '5511988888888'),
+('Henrique', '5511977777777')
 on conflict (phone_e164) do nothing;
+
+Na pasta do projeto copie o .env.example para .env substituindo as variáveis com seus dados.
+
+O projeto foi testado em ambiente virtual, segue o passo a passo:
+
+python -m venv .venv
+# Windows (PowerShell)
+.venv\Scripts\Activate.ps1
+# Linux/Mac
+source .venv/bin/activate
+
+Dentro da pasta whatsapp-supabase instale as dependências:
+pip install -r requirements.txt
+
+Execute o código:
+python src/main.py
+
+#Fluxo
+
+Busca até 3 contatos da tabela contacts no Supabase.
+Substitui {{nome_contato}} na mensagem pelo nome salvo no banco.
+Envia a mensagem via Z-API.
+Mostra no terminal o status de cada envio.
+
+#Observações
+
+Necessário que a instância Z-API esteja Online/Conectada (QR code lido recentemente).
+Mensagens só serão entregues se o número existir no WhatsApp.
+Projeto desenvolvido com boas práticas:
+.env para variáveis sensíveis
+Logs de execução
+Retries com tenacity para chamadas externas
