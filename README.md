@@ -21,10 +21,10 @@ Na ***pasta do projeto*** copie o .env.example para .env substituindo as variáv
 
 O projeto foi testado em ambiente virtual, segue o passo a passo:
 
-python -m venv .venv
-# Windows (PowerShell)
+**Criar** o ambiente virtual: python -m venv .venv
+**Windows (PowerShell)**
 .venv\Scripts\Activate.ps1
-# Linux/Mac
+**Linux/Mac**
 source .venv/bin/activate
 
 Dentro da pasta whatsapp-supabase instale as dependências:
